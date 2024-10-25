@@ -242,7 +242,7 @@ ol {
   overflow-y: auto;
   overflow-x: hidden;
   position: relative;
-  scrollbar-width: none;
+  scrollbar-width: none; /* изменен дефолтный скролл */
 }
 
 .content__list-item:not(:last-child) {
