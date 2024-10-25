@@ -1,5 +1,5 @@
 /* КОНФИГ */
-const preloaderWaitindTime = 1200;
+const preloaderWaitingTime = 1200;
 const cardsOnPage = 5;
 const BASE_URL = 'https://v-content.practicum-team.ru';
 const endpoint = `${BASE_URL}/api/videos?pagination[pageSize]=${cardsOnPage}&`;
@@ -73,7 +73,7 @@ async function mainMechanics(endpoint) {
       .querySelectorAll('.content__card-link')[0]
       .classList.add('content__card-link_current');
     await waitForReadyVideo(videoElement);
-    await delay(preloaderWaitindTime);
+    await delay(preloaderWaitingTime);
     removePreloader(videoContainer, '.preloader');
     removePreloader(cardsContainer, '.preloader');
     chooseCurrentVideo({
@@ -159,7 +159,7 @@ function appendCards({ baseUrl, dataArray, cardTmp, container }) {
   console.log('Сгенерировал карточки');
 }
 
-// Устанавливет внужное видео в контейнер ✅
+// Устанавливет нужное видео в контейнер ✅
 function setVideo({ baseUrl, video, videoUrl, posterUrl }) {
   video.setAttribute('src', `${baseUrl}${videoUrl}`);
   video.setAttribute('poster', `${baseUrl}${posterUrl}`);
@@ -224,7 +224,7 @@ function chooseCurrentVideo({
           posterUrl: vidoObj.poster.url,
         });
         await waitForReadyVideo(mainVideo);
-        await delay(preloaderWaitindTime);
+        await delay(preloaderWaitingTime);
         removePreloader(videoContainer, '.preloader');
         console.log('Переключил видео');
       };
